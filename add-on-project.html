@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hobby Project</title>
+    <button class="theme-button" id="button1">Change theme</button>
+    <style>
+      body {
+        background: peachpuff;
+      }
+      h1 {
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .container {
+        max-width: 600px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
+        margin: 15px 0;
+      }
+
+      .grid-img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .coding-into-picture {
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+      }
+
+      .coding-into-picture:hover {
+        transform: scale(1.1);
+        filter: contrast(80%);
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid palevioletred;
+        background: white;
+        font-size: 20px;
+        border-radius: 50px;
+        padding: 20px;
+        transition: all 150ms ease-in-out;
+      }
+
+      button:hover {
+        background: peachpuff;
+        cursor: pointer;
+      }
+
+      footer {
+        text-align: center;
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      .theme-button {
+        font-size: 10px;
+        background: black;
+        color: white;
+        padding: 5px 8px;
+      }
+
+      .theme-button:hover {
+        color: black;
+        background: white;
+      }
+
+      .dark {
+        background: black;
+        color: white;
+      }
+
+      .dark.container {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .dark.a {
+        color: peachpuff;
+      }
+    </style>
+  </head>
+  <body class="dark">
+    <div class="container">
+      <h1>💻What is Coding?</h1>
+      <h2>My hobby</h2>
+      <img
+        src="https://www.databankimx.com/wp-content/uploads/2022/04/iStock-1332378618.jpg"
+        class="coding-into-picture"
+      />
+      <div class="grid">
+        <img
+          src="https://imgix.bustle.com/2017/5/19/1dc9195f-1489-448b-90c2-fe7e98d37083.jpg?w=614&fit=crop&crop=faces&auto=format%2Ccompress&q=50&dpr=2"
+          class="coding-into-picture"
+        />
+        <img
+          src="https://media.istockphoto.com/id/1286022854/photo/african-american-woman-writing-computer-code.jpg?s=612x612&w=0&k=20&c=DUGZgnFzzymiccxKKoeFDFO-nDtNUL5rVxpbt2IYk4g="
+          class="coding-into-picture"
+        />
+        <img
+          src="https://i.cbc.ca/1.3987072.1487286581!/fileImage/httpImage/image.jpg_gen/derivatives/original_1180/girl-coding.jpg"
+          class="coding-into-picture"
+        />
+        <img
+          src="https://th.bing.com/th/id/OIP.KV_o2OcwMsJaU2OF-LrvKQHaE8?rs=1&pid=ImgDetMain"
+          class="coding-into-picture"
+        />
+      </div>
+    </div>
+    <p>
+      Computer programming or coding is the composition of sequences of
+      instructions, called programs, that computers can follow to perform tasks.
+      It involves designing and implementing algorithms, step-by-step
+      specifications of procedures, by writing code in one or more programming
+      languages. Programmers typically use high-level programming languages that
+      are more easily intelligible to humans than machine code, which is
+      directly executed by the central processing unit. Proficient programming
+      usually requires expertise in several different subjects, including
+      knowledge of the application domain, details of programming languages and
+      generic code libraries, specialized algorithms, and formal logic.
+    </p>
+    <a href="https://en.wikipedia.org/wiki/Computer_programming"
+      >Read on Wikipedia</a
+    >
+    <button id="button2" class="get-in-touch">
+      Get in touch for a private class
+    </button>
+    <footer>Coded by💻 Constance Carmen Sibanda</footer>
+    <script>
+      function changeTheme() {
+        let body = document.querySelector("body");
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+        } else {
+          body.classList.add("dark");
+        }
+      }
+
+      let themeButton = document.querySelector(".theme-button");
+      themeButton.addEventListener("click", changeTheme);
+
+      function getInTouch() {
+        let haveYouCoded = prompt("Have you coded before?");
+        let name = prompt("What is your name?");
+        let email = prompt("What is your email?");
+        alert(
+          `Thanks ${name}, we will be in touch soon with more details. Feel free to contact us if you have any questions at carmn@gmail.com`
+        );
+      }
+
+      let getInTouchButton = document.querySelector(".button2");
+      getInTouchButton.addEventListener("click", getInTouch);
+    </script>
+  </body>
+</html>
