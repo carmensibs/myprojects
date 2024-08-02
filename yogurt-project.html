@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Greek Yogurt</title>
+    <style>
+      body {
+        background-color: rgb(64, 197, 197);
+        width: 50%;
+        border: 80px;
+        margin: 50px;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+      }
+      h2 {
+        text-align: center;
+        color: white;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+      }
+      p {
+        color: white;
+      }
+      button {
+        margin: 0 auto;
+        padding: 30px;
+        display: block;
+        border-radius: 10px;
+        background-color: rgb(64, 104, 64);
+        color: white;
+        font-size: large;
+      }
+      button:hover {
+        background-color: white;
+        color: rgb(64, 104, 64);
+        cursor: pointer;
+        transition: 200s ease-in-out;
+      }
+      .header {
+        border: 3px solid white;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 10px;
+        border-width: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="header">I love Yogurt</h1>
+    <h2>Especially Greek Yogurts</h2>
+    <hr />
+    <img
+      src="https://th.bing.com/th/id/OIP.eLCroLW-0XjsL315-FJ2-gAAAA?w=276&h=183&rs=1&pid=ImgDetMain"
+    />
+    <hr />
+    <p>
+      <strong>Greek Yoghurt</strong> is yogurt that has been strained to remove
+      most of its whey, resulting in a thicker consistency than normal
+      unstrained yogurt, while still preserving the distinctive sour taste of
+      yogurt. Like many types, strained yogurt is often made from milk enriched
+      by boiling off some water content, or by adding extra butterfat and
+      powdered milk. In Europe and North America, it is often made from low-fat
+      or fat-free cow's milk. In Iceland, a similar product named
+      <em>skyr</em> is made.
+    </p>
+    <a href="https://en.wikipedia.org/wiki/Strained_yogurt"
+      >Read on Wikipedia</a
+    >
+    <br />
+    <p>Coded by Constance Carmen</p>
+
+    <hr />
+    <button class="hover">Try Greek Yogurt</button>
+
+    <script>
+      function tryGreekYogurt() {
+        let name = prompt("What is your name?");
+        if ((name = name)) {
+          alert(
+            `Thanks ${name}, we will be in touch, in the meantime have a lot of yogurt!`
+          );
+        } else {
+          alert(`No name ,no greek yogurt!`);
+        }
+      }
+      let tryGreekYogurtButton = document.querySelector("button");
+      tryGreekYogurtButton.addEventListener("click", tryGreekYogurt);
+    </script>
+  </body>
+</html>
