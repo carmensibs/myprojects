@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        width: 400px;
+      }
+      .search-container {
+        display: flex;
+        margin-bottom: 20px;
+      }
+      input {
+        flex-grow: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #7c3aed;
+        color: white;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+      }
+      .city {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .date-time {
+        color: #666;
+        margin-bottom: 10px;
+      }
+      .temperature {
+        font-size: 48px;
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+      }
+      .temperature .icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      .details {
+        color: #666;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #666;
+      }
+      .footer a {
+        color: #7c3aed;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-container">
+        <input type="text" id="city-input" placeholder="Enter a city.." />
+        <button onclick="getWeather()">Search</button>
+      </div>
+      <div id="weather-info"></div>
+      <div class="footer">
+        This project was coded by <a href="#">Constance Carmen Sibanda</a> and
+        is
+        <a href="#">on GitHub</a>
+      </div>
+    </div>
+
+    <script>
+      function getWeather() {
+        const city = document.getElementById("city-input").value;
+        const weatherData = {
+          city: city,
+          temperature: Math.floor(Math.random() * 30) + 10,
+          description: "moderate rain",
+          humidity: Math.floor(Math.random() * 50) + 50,
+          windSpeed: (Math.random() * 10).toFixed(1),
+        };
+
+        updateWeatherDisplay(weatherData);
+      }
+
+      function updateWeatherDisplay(data) {
+        const weatherInfo = document.getElementById("weather-info");
+        const currentDate = new Date();
+        const dayOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ][currentDate.getDay()];
+        const time = currentDate.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        weatherInfo.innerHTML = `
+                <div class="city">${data.city}</div>
+                <div class="date-time">${dayOfWeek} ${time}, ${data.description}</div>
+                <div class="temperature">
+                  🌞Temperature: ${data.temperature}°C
+                </div>
+                <div class="details">
+                    Humidity: ${data.humidity}%, Wind: ${data.windSpeed}km/h
+                </div>
+            `;
+      }
+
+      window.onload = function () {
+        document.getElementById("city-input").value = "Paris";
+        getWeather();
+      };
+      let apiKey = "026642be35372tao5bd2e60fa50510bf";
+      let apiUrl =
+        "https://api.shecodes.io/weather/v1/current?query=${city}&key=${026642be35372tao5bd2e60fa50510bf}";
+
+      function displayTemperature(response) {
+        console.log(response.data.temperature.current);
+        axios.get(apiUrl).then(displayTemperature);
+
+        let temperatureElement = document.querySelector("#temperature");
+        temperatureElement.innerHTML = response.data.temperature;
+      }
+      let temperature = math.round(response.data.temperature.current);
+      temperatureElement.innerHTML = `The temperature in ${response.data.city}, ${response.data.country} is ${temperature} ${response.data.condition.description}`;
+
+      let city = response.data.city;
+      let country = response.data.country;
+      let description = response.data.condition.description;
+    </script>
+  </body>
+</html>
